@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check IP Address - Free IP Lookup Tool | checkip.co</title>
+    <meta
+      name="description"
+      content="Free IP address lookup tool. Check your IP address and location instantly. Find detailed information about your internet connection and geolocation data."
+    />
+    <meta
+      name="keywords"
+      content="check ip, ip checker, what is my ip, ip address lookup, ip location"
+    />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        color: #2d3748;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .hero {
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .logo {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        color: #2d3748;
+      }
+
+      .ip-display {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #4a5568;
+      }
+
+      .location {
+        font-size: 1.5rem;
+        color: #718096;
+        margin-bottom: 2rem;
+      }
+
+      .loading {
+        font-size: 1.5rem;
+        color: #718096;
+      }
+
+      .content {
+        padding: 4rem 0;
+        line-height: 1.6;
+      }
+
+      .content h2 {
+        font-size: 1.8rem;
+        margin: 2rem 0 1rem;
+        color: #2d3748;
+      }
+
+      .content p {
+        margin-bottom: 1rem;
+        color: #4a5568;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 2rem;
+        color: #718096;
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .ip-display {
+          font-size: 2rem;
+        }
+
+        .location {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="hero">
+        <div class="ip-display" id="ip">Loading...</div>
+        <div class="location" id="location">Detecting location...</div>
+      </div>
+
+      <div class="content">
+        <h2>What is an IP Address?</h2>
+        <p>
+          An IP address (Internet Protocol address) is a unique numerical
+          identifier assigned to every device connected to a computer network
+          that uses the Internet Protocol for communication. Think of it as your
+          device's digital address on the internet.
+        </p>
+
+        <h2>Why Check Your IP Address?</h2>
+        <p>Knowing your IP address is crucial for various reasons:</p>
+        <ul>
+          <li>Troubleshooting network connectivity issues</li>
+          <li>Configuring network security settings</li>
+          <li>Setting up remote access to services</li>
+          <li>Verifying VPN functionality</li>
+          <li>Ensuring online privacy and security</li>
+        </ul>
+
+        <h2>About Our IP Checker Tool</h2>
+        <p>
+          checkip.co provides a simple, fast, and reliable way to check your
+          current IP address and location. Our tool instantly displays your IPv4
+          address and geographical location, helping you understand your
+          internet connection better.
+        </p>
+
+        <h2>Features of Our IP Lookup Service</h2>
+        <p>Our free IP checking tool offers:</p>
+        <ul>
+          <li>Real-time IP address detection</li>
+          <li>Accurate geolocation data</li>
+          <li>Fast and reliable results</li>
+          <li>User-friendly interface</li>
+          <li>No registration required</li>
+        </ul>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; 2024 checkip.co - Free IP Address Lookup Tool</p>
+      </footer>
+    </div>
+
+    <script>
+      async function fetchIPInfo() {
+        try {
+          const response = await fetch("https://ipapi.co/json/");
+          const data = await response.json();
+
+          document.getElementById("ip").textContent = data.ip;
+          document.getElementById(
+            "location"
+          ).textContent = `${data.city}, ${data.region}, ${data.country_name}`;
+        } catch (error) {
+          document.getElementById("ip").textContent = "Error loading IP";
+          document.getElementById("location").textContent =
+            "Could not detect location";
+          console.error("Error fetching IP info:", error);
+        }
+      }
+
+      // Fetch IP info when page loads
+      fetchIPInfo();
+    </script>
+  </body>
+</html>
