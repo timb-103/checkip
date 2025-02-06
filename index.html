@@ -8,23 +8,15 @@
       name="description"
       content="Free IP address lookup tool. Check your IP address and location instantly. Find detailed information about your internet connection and geolocation data."
     />
-    <meta
-      name="keywords"
-      content="check ip, ip checker, what is my ip, ip address lookup, ip location"
-    />
+    <meta name="keywords" content="check ip, ip checker, what is my ip, ip address lookup, ip location" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <script
-      defer
-      data-domain="checkip.co"
-      src="https://plausible.io/js/script.js"
-    ></script>
+    <script defer data-domain="checkip.co" src="https://plausible.timb.com/js/script.js"></script>
     <style>
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Oxygen, Ubuntu, Cantarell, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       }
 
       body {
@@ -125,10 +117,9 @@
       <div class="content">
         <h2>What is an IP Address?</h2>
         <p>
-          An IP address (Internet Protocol address) is a unique numerical
-          identifier assigned to every device connected to a computer network
-          that uses the Internet Protocol for communication. Think of it as your
-          device's digital address on the internet.
+          An IP address (Internet Protocol address) is a unique numerical identifier assigned to every device connected
+          to a computer network that uses the Internet Protocol for communication. Think of it as your device's digital
+          address on the internet.
         </p>
 
         <h2>Why Check Your IP Address?</h2>
@@ -143,10 +134,9 @@
 
         <h2>About Our IP Checker Tool</h2>
         <p>
-          checkip.co provides a simple, fast, and reliable way to check your
-          current IP address and location. Our tool instantly displays your IPv4
-          address and geographical location, helping you understand your
-          internet connection better.
+          checkip.co provides a simple, fast, and reliable way to check your current IP address and location. Our tool
+          instantly displays your IPv4 address and geographical location, helping you understand your internet
+          connection better.
         </p>
 
         <h2>Features of Our IP Lookup Service</h2>
@@ -162,9 +152,7 @@
 
       <footer class="footer">
         <p>&copy; 2024 checkip.co - Free IP Address Lookup Tool</p>
-        <p style="margin-top: 30px">
-          Built by <a href="https://timb.com">timb.com</a>
-        </p>
+        <p style="margin-top: 30px">Built by <a href="https://timb.com">timb.com</a></p>
       </footer>
     </div>
 
@@ -175,13 +163,10 @@
           const data = await response.json();
 
           document.getElementById("ip").textContent = data.ip;
-          document.getElementById(
-            "location"
-          ).textContent = `${data.city}, ${data.region}, ${data.country_name}`;
+          document.getElementById("location").textContent = `${data.city}, ${data.region}, ${data.country_name}`;
         } catch (error) {
           document.getElementById("ip").textContent = "Error loading IP";
-          document.getElementById("location").textContent =
-            "Could not detect location";
+          document.getElementById("location").textContent = "Could not detect location";
           console.error("Error fetching IP info:", error);
         }
       }
